@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Notifications</title>
+<link rel="stylesheet" href="{% static 'css/notif.css' %}">
+{% endblock title %}
+
+{% block header %}
+<header id="header">
+  <div class="d-flex flex-column">
+
+    <div class="profile">
+      <img src="{% static 'images/logo-text.png' %}" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <nav id="navbar" class="nav-menu navbar">
+      <ul>
+        <li><a href="{% url 'core:index' %}" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Home</span></a>
+        </li>
+        <li><a href="{% url 'core:search' %}" class="nav-link scrollto"><i class="bx bx-search"></i>
+            <span>Search</span></a></li>
+        <li><a href="{% url 'notifications:index' %}" class="nav-link scrollto  active"><i class="bx bx-bell"></i> <span>Notifications</span></a></li>
+        <li><a href="{% url 'saved:index' %}" class="nav-link scrollto"><i class="bx bx-bookmark"></i> <span>Saved Posts</span></a></li>
+        <li><a href="{% url 'core:profile' pk=user_profile.user.username %}" class="nav-link scrollto"><i class="bx bx-user"></i>
+            <span>Profile</span></a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class='footer'>
+    <a href="{% url 'core:logout' %}" class="btn-more nav-link"><i class="bx bx-log-out" id="more-btn-logo"></i><span>Logout</span></a>
+  </div>
+</header>
+{% endblock header %}
+
+{% block main %}
+<main id="main">
+  <div class='page-body'>
+    <div class='content-header'>
+      <p>Notifications</p>
+    </div>
+    <div class='content-body'>
+      {% if not noti_list %}
+      <div class='notification-block'>
+        <marquee id='no-new-noti' scrollamount='10'; behavior="" direction="right">No new notifications :)</marquee>
+      </div>
+      {% else %}
+      {% for noti in noti_list %}
+      <div class='notification-block'>
+        <div class='notification-block-left'>
+          <i class='bx bxs-bell-ring'></i>
+        </div>
+        <div class='notification-block-middle'>
+          <p>{{noti.message}}</p>
+        </div>
+        <div class='notification-block-right'>
+          <a href="{% url 'notifications:read' not_id=noti.not_id %}"><i class='bx bx-x-circle'></i></a>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</main>
+{% endblock main %}

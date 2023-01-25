@@ -1,0 +1,130 @@
+/* body {
+    background-color: #626262;
+} */
+.form-container{
+    background-color: #1D1813;
+    width: 500px;
+    height: 800px;
+    color: #EFE5CA;
+    font-family: 'Inter', sans-serif;
+    font: 'Inter';
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    border-radius: 54px;
+    margin: auto;
+    align-items: center;
+    box-shadow: 2px 4px 16px #000;
+}
+
+.form-container form {
+    margin: auto;
+}
+
+.logo-container {
+    width: 271px;
+    height: 150px;
+    text-align: center;
+    margin:auto;
+    margin-bottom: 40px;
+    font-size: 28px;
+    overflow: hidden;
+}
+.logo-container img {
+    width: 100%;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    align-items: flex-start;
+}
+
+.input-container input {
+    width: 296px;
+    height: 49px;
+    border-radius: 8px;
+    background-color: #1D1813;
+    border: 2px solid #EFE5CA;
+    font-size: medium;
+    margin-top: 3px;
+    margin-bottom: 14px;
+    transition: box-shadow 0.3s ease-in-out;
+    caret-color: #626262;
+    color: #828282;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+.input-container input:focus::placeholder {
+    color: transparent;
+}
+.input-container input:focus {
+    box-shadow: 0 0 16px #EFE5CA;
+}
+
+.input-container label{
+    align-self: left;
+    font-size: 17px;
+}
+.input-container a {
+    color: #EFE5CA;
+    text-decoration: none;
+}
+
+.input-container a:hover {
+    text-decoration: underline;
+}
+
+.input-container input::placeholder {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    color: #828282;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.btn-container input {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    color: #EFE5CA;
+    background-color: #3A3025;
+    border: 0px;
+    border-radius: 20.5px;
+    padding-left: 105px;
+    padding-right: 105px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 2px 4px 16px #000;
+}
+.btn-container input:hover {
+    box-shadow: 2px 4px 9px #EFE5CA;
+}
+
+.btn-container p {
+    align-self: center;
+}
+
+
+
+body{
+    background-color: #000000;
+    padding: 0px;
+    margin: 0px;
+}
+
+#gradient{
+    width: 100%;
+    height: 800px;
+    padding: 0px;
+    margin: 0px;
+}
+

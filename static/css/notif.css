@@ -1,0 +1,69 @@
+.page-body {
+    background-color: #9C9685;
+    min-height: 100vh;
+    margin: 20px;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.content-header p {
+    font-family: "Roboto";
+    font-weight: 900;
+    font-size: 28px;
+    color: #EAD9A9;
+}
+
+.content-body {
+    background-color: #E1D9C2;
+    padding: 20px;
+    border: 3px solid #757062;
+    border-radius: 18px;
+}
+
+.notification-block {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px;
+    border: 3px solid #757062;
+    border-radius: 18px;
+    background-color: #9C9685;
+}
+
+.notification-block-left {
+    flex: 1;
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #E1D9C2;
+}
+
+.notification-block-middle {
+    display: flex;
+    flex: 10;
+    justify-content: center;
+}
+.notification-block-middle p {
+    display: flex;
+    font-size: 28px;
+    margin: 0px;
+    align-items: center;
+    color: #EAD9A9;
+}
+.notification-block-right {
+    flex: 1;
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.notification-block-right i {
+    color: #E1D9C2;
+}
+.notification-block-right i:hover,.notification-block-left i:hover {
+    color: #EAD9A9;
+}
+
+.notification-block #no-new-noti {
+    padding: 20px;
+}

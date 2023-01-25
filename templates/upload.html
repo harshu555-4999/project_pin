@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+
+    <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    {% for message in messages %}
+    <marquee behavior="alternate" direction="right" Scrollamount=8><p id='alert-msg'>{{message}}</p></marquee>
+    {% endfor %}
+    <a href="{% url 'core:index' %}"><button class='btn-back'><i class='bx bx-left-arrow-alt'></i></button></a>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class='post-form-block'> 
+            <div class='content'>
+                <div class="temp">
+                    <input type="file" class="up-btn" name="post_image" >
+                    <p>Recommended resolution: 800x800px</p>
+                </div>
+                <div class='caption-section'>
+                    <div class='user-data'>
+                        <img src="{{user_profile.profile_pic.url}}" class="img-fluid img-thumbnail mt-4 mb-2">
+                        <a href="{% url 'core:profile' pk=user_profile.user.username %}">
+                            <p>{{user_profile.display_name}}</p>
+                            <br>
+                            <span>@{{user_profile.user.username}}</span>
+                        </a>
+                    </div>
+                    <textarea name="caption" id="" cols="25" rows="10" placeholder="Enter post description ..."></textarea>
+                    <input type="submit" value='Post' class="upload-btn">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

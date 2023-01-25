@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/login_and_signup_form.css' %}">
+    <script src="{% static 'js/login.js' %}"></script>
+</head>
+
+<body id="gradient">
+    <div class="form-container">
+        <form action="" method="post" class="">
+            {% csrf_token %}
+            <div class="logo-container">
+                <p>WELCOME TO 
+                    <img src="{% static 'images/logo-text.png' %}" alt="logo">
+                </p>
+            </div>
+            <div class="input-container">
+                {% for message in messages %}
+                <h5>{{message}}</h5>
+                {% endfor %} 
+                <label for="username">Username</label>
+                <input type="text" name="username" placeholder="Enter your username... ">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="" placeholder="Enter your password...">
+                <a href="/accounts/password_reset/">Forgot your password?</a>
+            </div>
+            
+            <div class="btn-container">
+                <input type="submit" value="Login" class="btn">
+                <p>OR</p>
+                <input type="submit" name='signup' value='SignUp'>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

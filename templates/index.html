@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_share %}
+{% block title %}
+<title>Home</title>
+{% endblock title %}
+
+{% block header %}
+<header id="header">
+  <div class="d-flex flex-column">
+    <div class="profile">
+      <img src="{% static 'images/logo-text.png' %}" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <nav id="navbar" class="nav-menu navbar">
+      <ul>
+        <li><a href="{% url 'core:index' %}" class="nav-link scrollto active"><i class="bx bx-home"></i>
+            <span>Home</span></a></li>
+        <li><a href="{% url 'core:search' %}" class="nav-link scrollto"><i class="bx bx-search"></i>
+            <span>Search</span></a></li>
+        <li><a href="{% url 'notifications:index' %}" class="nav-link scrollto"><i class="bx bx-bell"></i> <span>Notifications</span></a></li>
+        <li><a href="{% url 'saved:index' %}" class="nav-link scrollto"><i class="bx bx-bookmark"></i> <span>Saved Posts</span></a></li>
+        <li><a href="{% url 'core:profile' pk=user_profile.user.username %}" class="nav-link scrollto"><i
+              class="bx bx-user"></i> <span>Profile</span></a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class='footer'>
+    <button class='btn-more'><a href="{% url 'core:logout' %}" class='btn-more'><i class='bx bx-log-out'></i>
+        Logout</a></button>
+  </div>
+</header>
+{% endblock header %}
+
+{% block main %}
+<main id="main">
+  <section class="search-btn">
+    <a href="{% url 'core:search' %}"><button>
+        <div><i class='bx bx-search' id='search-btn-logo'></i></div>
+        <div>
+          <p>Search</p>
+        </div>
+      </button></a>
+  </section>
+
+  {% comment %} <div class='sug-container'>
+    <div>
+      {% for suggestion in suggestions_username_profile_list %}
+      <div class="sug-block">
+        <div class="sug-data">
+          <a href="/profile/{{suggestion.user}}">
+            <img src="{{suggestion.profile_pic.url}}" class="sug-user-avatar">
+          </a>
+          <div class="sug-details">
+            <span class="block capitalize font-semibold"> {{suggestion.user}} </span>
+            <span class="block capitalize text-sm"> {{suggestion.bio}} </span>
+          </div>
+        </div>
+        <a href="/profile/{{suggestion.user}}" class="sug-btn"> View User </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div> {% endcomment %}
+
+  <div class='body-body'>
+    <div class="card" style="width: 60rem">
+      <div>
+        {% if not posts %}
+        <p class='no-post-p'>No post here...</p>
+        {% else %}
+        {% for post in posts reversed %}
+        <div class="d-flex p-3  d-flex-custom">
+          <div class="d-flex ps-3">
+            <div class='post-user'>
+              <a href="{% url 'core:profile' pk=post.user %}">
+                <h6 id="text-body">
+                  {{post.author_name}}
+                  <span class="small font-weight-normal">@{{post.user}}</span>
+                  <span class="small font-weight-normal"> • </span>
+                  <span class="small font-weight-normal">{{post.created_at}}</span>
+                  <span><i class="fas fa-angle-down float-end"></i></span>
+                </h6>
+              </a>
+              <p style="line-height: 1.2;">
+                {{post.caption}}
+              </p>
+              <div class='post-bd'>
+                <img src="{{post.image.url}}" class="img-fluid-custom rounded " alt="post img" />
+              </div>
+              <ul class="list-unstyled d-flex justify-content-between mb-0 ">
+                <li><a href="/like-post?post_id={{post.id}}"><i id='icon' class='bx bxs-heart'></i><span
+                      class="small ps-2">{{post.no_of_likes}}</span></a></li>
+                <li><a href="saved/save?post_id={{post.id}}"><i id='icon' class='bx bxs-bookmark'></i></a></li>
+                <li><a href="{{post.image.url}}" download><i id='icon' class='bx bxs-download'></i></a></li>
+                <li>{% post_to_facebook object_or_url "<i id='icon' class='bx bxl-facebook'></i>" %}</li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock main %}
+
+{% block bottom %}
+<a href="{% url 'core:create' %}" class="float">
+  <i class="bx bx-plus my-float"></i></i>
+</a>
+{% endblock bottom %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_share %}
+
+{% block title %}
+<title>Post Detail</title>
+<link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+{% endblock title %}
+
+{% block header %}
+{% endblock header %}
+
+{% block main %}
+<a id='x-btn' href="{% url 'saved:index' %}"><i class='bx bx-x'></i></a>
+<div class='post-page-body'>
+    <div class='post-body-left'>
+        <img class='i-pbl' src="{{post.image.url}}" class="img-fluid-custom rounded " alt="post img" />
+    </div>
+    <div class='post-body-right'>
+        <div class='post-body-right-top'>
+            <ul class="list-unstyled d-flex justify-content-between mb-0 ">
+                <li><a href="/like-post?post_id={{post.id}}"><i id='icon' class='bx bxs-heart'></i></a></li>
+                <li><a href="saved/save?post_id={{post.id}}"><i id='icon' class='bx bxs-bookmark'></i></a></li>
+                <li><a href="{{post.image.url}}" download><i id='icon' class='bx bxs-download'></i></a></li>
+                <li>{% post_to_facebook object_or_url "<i id='icon' class='bx bxl-facebook'></i>" %}</li>
+              </ul>
+        </div>
+        <div class='post-body-right-middle'>
+            <p style="line-height: 1.2;">
+                {{post.caption}}
+              </p>
+        </div>
+        <div class='post-body-right-bottom'>
+            <p class='pbrb-p'>Comments Coming Soon 👍</p>
+            <div class='pbrb-div'>
+                <input class='pbrb-inp' type="text" placeholder='Add a Comment'>
+                <span class='pbrb-span'>😀</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

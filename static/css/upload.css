@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #EAD9A9;
+}
+
+.post-form-block {
+    background-color: #fff;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.btn-back {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.temp {
+    width: 50%;
+    text-align: center;
+}
+
+.up-btn {
+    width: 50%;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    color: #ccc;
+    font-size: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.up-btn:hover {
+    background-color: #e6e6e6;
+    border-color: #333;
+    color: #333;
+}
+
+.caption-section {
+    width: 50%;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.user-data {
+    display: flex;
+    align-items: center;
+}
+
+.user-data img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.user-data a {
+    color: #333;
+    text-decoration: none;
+}
+
+.user-data a p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 18px;
+    resize: none;
+    margin-right: 20px;
+}
+
+.upload-btn {
+    background-color: #1D1813;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.upload-btn:hover {
+    background-color: #EAD9A9;
+    cursor: pointer;
+}
+
+/* Media query for responsive layout */
+@media (max-width: 768px) {
+    .post-form-block {
+        width: 90%;
+    }
+
+    Copy code .post-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Additional styles for user profile picture */
+.user-data img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+/* Animation for underline on hover */
+.user-data a:hover p::before {
+    width: 100%;
+}
+
+/* Style for back button */
+.btn-back {
+    font-size: 30px;
+    padding: 10px;
+}
+
+/* Additional styles for post image */
+.temp {
+    width: 50%;
+    text-align: center;
+}
+
+.temp .up-btn {
+    padding: 10px;
+    font-size: 18px;
+}
+
+/* Additional styles for textarea */
+textarea {
+    font-size: 16px;
+    margin-top: 10px;
+    resize: none;
+    height: 150px;
+}
+
+
+/* Additional styles for user profile picture */
+.user-data img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+/* Animation for underline on hover */
+.user-data a:hover p::before {
+    width: 100%;
+}
+
+/* Style for back button */
+.btn-back {
+    font-size: 30px;
+    padding: 10px;
+}
+
+/* Additional styles for post image */
+.temp {
+    width: 50%;
+    text-align: center;
+}
+
+.temp .up-btn {
+    padding: 10px;
+    font-size: 18px;
+}
+
+/* Additional styles for textarea */
+textarea {
+    font-size: 16px;
+    margin-top: 10px;
+    resize: none;
+    height: 150px;
+}
+/* Media query for responsive layout */
+@media (max-width: 768px) {
+    .post-form-block {
+        width: 90%;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .temp {
+        margin-bottom: 20px;
+    }
+
+    .caption-section {
+        width: 100%;
+    }
+
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Additional styles for underline animation on hover */
+.user-data a p {
+    position: relative;
+    display: inline-block;
+    margin-top: 0px;
+}
+
+.user-data a p::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #1D1813;
+    transition: width 0.5s ease-in-out;
+}
+
+.user-data a:hover p::before {
+    width: 100%;
+}
+
+#alert-msg {
+    color: black;
+    padding: 10px;
+}
